@@ -1,0 +1,43 @@
+{
+  "name": "ztrans-cli",
+  "version": "0.4.0",
+  "description": "基于百度翻译api的批量国际化cli工具",
+  "main": "src/index.js",
+  "type": "module",
+  "author": "zzdaddy",
+  "bin": {
+    "zts": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzdaddy/ztrans-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "ztrans",
+    "zts",
+    "translate",
+    "i18n"
+  ],
+  "scripts": {
+    "init": "npm run sync",
+    "sync": "node ./build/syncLocal.js",
+    "reset": "node ./build/beforeGitPush.js && git add . && git commit -m \"reset config\" && git push",
+    "release:patch": "npm run reset && npm version patch && npm publish",
+    "release:minor": "npm run reset && npm version minor && npm publish",
+    "release:major": "npm run reset && npm version major && npm publish"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "1.6.2",
+    "chalk": "5.3.0",
+    "commander": "11.0.0",
+    "inquirer": "9.2.8",
+    "ora": "7.0.0",
+    "sharp": "0.33.0",
+    "shelljs": "0.8.5"
+  }
+}
